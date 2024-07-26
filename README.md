@@ -1,2 +1,13 @@
 # Test-repo-practice
-this is tha again one test repoistory which is i have created 
+
+resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
+  description = "Allow TLS inbound traffic and all outbound traffic"
+
+  ingress {
+    description = "TLC from VPC"
+    from_port = "3389"
+    to_port = "3389"
+    protocol = "tcp"
+    cidr_blocks = [ "0.0.0.0/0" ]
+  }
